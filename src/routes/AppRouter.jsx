@@ -28,25 +28,25 @@ export default function AppRouter() {
             <Route
                 path="/posts"
                 element={
-                    // user ? (
+                    user ? (
                         <PrivateLayout>
                             <PostsPage />
                         </PrivateLayout>
-                    // ) : (
-                    //     <Navigate to="/login" />
-                    // )
+                    ) : (
+                        <Navigate to="/login" />
+                    )
                 }
             />
             <Route
                 path="/profile"
                 element={
-                    // user ? (
+                    user ? (
                         <PrivateLayout>
                             <ProfilePage />
                         </PrivateLayout>
-                    // ) : (
-                    //     <Navigate to="/login" />
-                    // )
+                    ) : (
+                        <Navigate to="/login" />
+                    )
                 }
             />
             <Route path="*" element={<Navigate to={user ? "/posts" : "/login"} />} />

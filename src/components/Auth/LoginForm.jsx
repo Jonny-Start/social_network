@@ -16,8 +16,8 @@ export default function LoginForm() {
         try {
             setError(null);
             await login(form);
-        } catch (err) {
-            setError(err.message || "Error inesperado");
+        } catch (err) {            
+            setError( err.response?.data?.message || err.message || "Error inesperado");
         }
     };
 

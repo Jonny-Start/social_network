@@ -13,7 +13,7 @@ export const getPosts = async () => {
 
 export const createPost = async ({ message }) => {
   try {
-    const payload = { message, date: new Date().toISOString() };
+    const payload = { content: message, date: new Date().toISOString() };
     const { data } = await axios.post(API_URLS.createPost, payload);
     return data;
   } catch (error) {
