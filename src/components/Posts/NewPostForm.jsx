@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { usePostContext } from "../../context/PostContext";
+import './NewPostForm.css';
 
 export default function NewPostForm() {
     const { addPost } = usePostContext();
@@ -23,18 +24,20 @@ export default function NewPostForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="p-4 border rounded mb-6">
-            {error && <p className="text-red-600 mb-2">{error}</p>}
-            <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="¿Qué estás pensando?"
-                className="w-full p-2 mb-2 border rounded resize-none"
-                rows={3}
-            />
-            <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded">
-                Publicar
-            </button>
-        </form>
+        <div id="contentCardNewPost">
+            <form onSubmit={handleSubmit} className="">
+                {error && <p className="text-red-600 mb-2">{error}</p>}
+                <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="¿Qué estás pensando?"
+                    className="w-full p-2 mb-2 border rounded resize-none"
+                    rows={3}
+                />
+                <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded">
+                    Publicar
+                </button>
+            </form>
+        </div>
     );
 }

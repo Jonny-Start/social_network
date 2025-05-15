@@ -1,0 +1,22 @@
+div.contentPostsPage {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* background: #1e202914; */
+    height: -webkit-fill-available;
+    width: 50%;
+}
+
+div#contentCardNewPost {
+    height: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 1px 2px 3px #999090;
+    width: 70%;
+    text-align: center;
+}

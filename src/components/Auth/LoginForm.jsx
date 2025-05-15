@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
+import './LoginForm.css';
+
 
 export default function LoginForm() {
     const { login } = useAuthContext();
@@ -20,27 +22,48 @@ export default function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="p-6 bg-white rounded shadow-md w-80">
-            <h2 className="text-xl mb-4">Inicio de Sesión</h2>
-            {error && <p className="text-red-600 mb-2">{error}</p>}
-            <input
-                name="username"
-                value={form.username}
-                onChange={handleChange}
-                placeholder="Usuario"
-                className="w-full p-2 mb-3 border rounded"
-            />
-            <input
-                name="password"
-                type="password"
-                value={form.password}
-                onChange={handleChange}
-                placeholder="Clave"
-                className="w-full p-2 mb-4 border rounded"
-            />
-            <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded">
-                Ingresar
-            </button>
-        </form>
+        <div id="contentLogin">
+            <form onSubmit={handleSubmit} className="">
+                <span id="contentTitle">
+                    <h2 className="">Bienvenido a Social</h2>
+                    <p>¡Nos encanta tenerte de nuevo aquí!</p>
+                </span>
+                {error && <p className="text-red-600 mb-2">{error}</p>}
+                <span>
+                    <input
+                        name="username"
+                        value={form.username}
+                        onChange={handleChange}
+                        placeholder="Usuario"
+                        className="inputPrimary"
+                    />
+                    <input
+                        name="password"
+                        type="password"
+                        value={form.password}
+                        onChange={handleChange}
+                        placeholder="Clave"
+                        className="inputPrimary"
+                    />
+                </span>
+                <div className="contentCheck">
+                    <label htmlFor="rememberMe" className="">
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                            name="rememberMe"
+                            className="form-checkbox"
+                        />
+                        <i></i>
+                        Recuérdame
+                    </label>
+                    <a href="">¿Olvidaste tú contraseña?</a>
+                </div>                
+                <button type="submit" className="buttonPrimary">
+                    Ingresar
+                </button>
+                <p id="textRegister">¿Aún no te haz registrado? <a href="">Regístrate aquí</a></p>
+            </form>
+        </div>
     );
 }

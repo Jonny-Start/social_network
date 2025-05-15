@@ -1,0 +1,115 @@
+main {
+    background-image: url(/src/assets/fondo-views.png);
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 4.2em);
+    background-color: #f5f5dc42;
+}
+
+div#contentProfile {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* background: #1e202914; */
+    height: -webkit-fill-available;
+    width: 50%;
+
+}
+
+div#contentTitleProfile,
+div#contentBodyProfile {
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 1px 2px 3px #999090;
+    width: 70%;
+    text-align: center;
+    height: 26em;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    /* margin-top: 1em; */
+}
+
+div#contentTitleProfile {
+    height: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    flex-direction: row;
+}
+
+div#contentTitleProfile,
+span#contentFollowers {
+    display: flex;
+    align-items: center;
+
+}
+
+div#contentTitleProfile h2 {
+    width: auto;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+div#contentTitleProfile img {
+    width: 30%;
+    border-radius: 1em;
+}
+
+div#contentTitleProfile p#textArroba {
+    color: gray;
+    /* font-size: 14px; */
+}
+
+span#contentTextProfile {
+    width: 70%;
+}
+
+div#contentTitleProfile p {
+    font-size: 14px;
+}
+
+span#contentFollowers {
+    justify-content: center;
+    gap: 7em;
+}
+
+div#contentBodyProfile {
+    padding: 2em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    justify-content: flex-start;
+}
+
+div#contentBodyProfile p {
+    font-size: 14px;
+}
+
+div#contentBodyProfile h5 {
+    text-align: left;
+    font-weight: bold;
+}
+
+div#contentBodyProfile div#contentGeneralInformation {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5em;
+}
+
+div#contentGeneralInformation span p {
+    font-size: 13px;
+    text-align: left;
+}
+
+div#contentGeneralInformation span:first-child p {
+    font-weight: bold;
+    text-align: left;
+}
+
+/* div#contentGeneralInformation span:last-child p{
+
+} */

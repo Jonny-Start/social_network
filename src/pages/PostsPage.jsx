@@ -21,11 +21,13 @@ export default function PostsPage() {
 
     // 3) Ahora posts es un array → map sin errores
     return (
-        <div className="max-w-xl mx-auto">
-            <NewPostForm />
+        <div className="contentPostsPage">
+            {/* <NewPostForm />
             {posts.map((post) => (
                 <PostCard key={post.id} post={post} onLike={like} />
-            ))}
+            ))} */}
+            <NewPostForm />
+                <PostCard />
         </div>
     );
 }
