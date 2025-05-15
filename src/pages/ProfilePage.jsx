@@ -4,23 +4,15 @@ import './ProfilePage.css';
 export default function ProfilePage() {
     const { user } = useAuthContext();
 
-    // if (!user) return <p>Cargando perfil...</p>;
+    if (!user) return <p>Cargando perfil...</p>;
 
-    // return (
-    //     <div className="p-4">
-    //         <h2 className="text-xl font-semibold">Perfil</h2>
-    //         <p><strong>Nombre:</strong> {user?.name || 'nam'} {user.lastname}</p>
-    //         <p><strong>Alias:</strong> {user?.alias || 'ali'}</p>
-    //         <p><strong>Nacimiento:</strong> {user?.birthdate || 'date'}</p>
-    //     </div>
-    // );
-    if (!user) return (
+    return (
         <div id="contentProfile">
             <div id="contentTitleProfile">
-                <img src="/src/assets/photo-profile.jpg" alt="" />
+                <img src="/src/assets/photo-profile.jpeg" alt="" />
                 <span id="contentTextProfile">
-                    <h2 className="text-xl font-semibold">Alejo Cano</h2>
-                    <p id="textArroba">@AlejoCano09</p>
+                    <h2 className="text-xl font-semibold">{user?.firstName} {user?.lastName}</h2>
+                    <p id="textArroba">@{user?.alias}</p>
                     <span id="contentFollowers">
                         <p><strong>45K </strong><br /> Seguidores</p>
                         <p><strong>5K</strong> <br /> Siguiendo</p>
@@ -49,16 +41,17 @@ export default function ProfilePage() {
                             <p>Pág web:</p>
                         </span>
                         <span>
-                            <p> Jonny Alejandro Cano Acosta</p>
-                            <p>09/10/2001</p>
-                            <p> Bogotá, Colombia</p>
-                            <p>alejocano@gmail.com</p>
+                            <p>{user?.firstName} {user?.lastName}</p>
+                            <p>{user?.birthDate.split('T')[0]}</p>
+                            <p>Bogotá, Colombia</p>
+                            <p>{user?.email}</p>
                             <p>3015016284</p>
-                            <p> www.linkedin.com/jonnycano</p>
+                            <p><a href="https://www.linkedin.com/in/jonny-alejandro-cano-acosta-b705b91a0" target="_blanck">https://www.linkedin.com/in/jonny-alejandro-cano-acosta-b705b91a0</a></p>
                         </span>
                     </div>
                 </span>
             </div>
         </div>
     );
+
 }

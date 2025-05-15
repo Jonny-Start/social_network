@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { usePostContext } from "../../context/PostContext";
+import { useAuthContext } from "../../context/AuthContext";
 import './NewPostForm.css';
 
 export default function NewPostForm() {
     const { addPost } = usePostContext();
+    const { user } = useAuthContext();
     const [message, setMessage] = useState("");
     const [error, setError] = useState(null);
 
@@ -25,16 +27,21 @@ export default function NewPostForm() {
 
     return (
         <div id="contentCardNewPost">
+            <h5>Crea una publicación</h5>
             <form onSubmit={handleSubmit} className="">
                 {error && <p className="text-red-600 mb-2">{error}</p>}
+                <span id="contentDataProfile">
+                    <img src="/src/assets/photo-profile.jpeg" alt="" />
+                    <h5>{user?.alias}</h5>
+                </span>
                 <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="¿Qué estás pensando?"
+                    placeholder="¿Qué estás pensando Alejo?"
                     className="w-full p-2 mb-2 border rounded resize-none"
                     rows={3}
                 />
-                <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded">
+                <button type="submit" className="sharePost">
                     Publicar
                 </button>
             </form>

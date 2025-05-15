@@ -24,7 +24,7 @@ export const createPost = async ({ message }) => {
 
 export const likePost = async (postId) => {
   try {
-    const { data } = await axios.post(API_URLS.likePost, { postId });
+    const { data } = await axios.post(API_URLS.likePost, { postId });    
     return data;
   } catch (error) {
     console.error("Error liking post:", error);

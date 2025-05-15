@@ -14,7 +14,6 @@ export const PostProvider = ({ children }) => {
         if (!isLoading) return;
         try {
             const { data } = await axios.get(API_URLS.getPosts);
-            console.log("Posts: ", data);
             setPosts(data);
         } catch (err) {
             console.error(err);
@@ -26,7 +25,6 @@ export const PostProvider = ({ children }) => {
     const addPost = useCallback(async (message) => {
         try {
             const response = await apiCreatePost({ message });
-            console.log("Posts: ", response);
             setPosts(prev => ({
                 ...prev,
                 posts: [{ ...response.post }, ...prev.posts]
@@ -39,10 +37,20 @@ export const PostProvider = ({ children }) => {
 
     const like = useCallback(async (postId) => {
         try {
-            const updated = await apiLikePost(postId);
-            setPosts(prev =>
-                prev.map(p => p.id === postId ? { ...p, likes: updated.likes } : p)
-            );
+            // const { likes } = await apiLikePost(postId);
+            // setPosts(prevState => ({
+            //     ...prevState,
+            //     posts: prevState.posts.map(post =>
+            //         post.id === postId
+            //             ? { ...post, likes }
+            //             : post
+            //     )
+            // }));
+            await apiLikePost(postId); // Realizamos el like
+            // Actualizamos los posts consultando nuevamente
+            const { data } = await axios.get(API_URLS.getPosts);
+            setPosts(data);
+
         } catch (err) {
             console.error("Error al dar like:", err);
             throw err;

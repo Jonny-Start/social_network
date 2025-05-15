@@ -17,24 +17,30 @@ export default function Navbar() {
         <nav className="bg-white shadow p-4 flex justify-between items-center">
             <div id="contentIconName">
                 <img id="icon" src="/src/assets/s.png" alt="" />
-                <span className="">¡Hola, {user?.alias || 'no alias'}!</span>
+                <span className="">¡Hola, {user?.alias}!</span>
             </div>
             <div className="contentIconsLink">
-                <Link to="/posts" className="hover:underline">
-                    <img src="/src/assets/home.svg" alt="" title="Home" />
+                <Link to="/posts" className="linkPage">
+                    <span className="optionMenu">
+                        <img src="/src/assets/home.svg" alt="" title="Home" />
+                        <p>Home</p>
+                    </span>
                 </Link>
-                <Link to="/profile" className="hover:underline">
-                    <img src="/src/assets/profile.svg" alt="" title="Perfil" />
-                </Link>
-                   <Link to="/profile" className="hover:underline">
-                    <img src="/src/assets/settings.svg" alt="" title="Configuración" />
+                <Link to="/profile" className="linkPage">
+                    <span className="optionMenu">
+                        <img src="/src/assets/profile.svg" alt="" title="Perfil" />
+                        <p>Perfil</p>
+                    </span>
                 </Link>
             </div>
-            <div className="flex items-center space-x-4">
-                {/* <button title="Perfil"> <img src="/src/assets/profile.svg" alt="" /> </button> */}
-                <button onClick={handleLogout} className="text-red-500 hover:underline" title="Cerrar Sesión">
-                    <img src="/src/assets/log-out.svg" alt="" title="Perfil" />
+            <div className="contentButtonLog">
+                <button onClick={handleLogout} className="buttonLogOut" title="Cerrar Sesión">
+                    <span>
+                        <img src="/src/assets/log-out.svg" alt="" title="Cerrar sesión" />
+                    </span>
+                    <p>Cerrar sesión</p>
                 </button>
+
             </div>
         </nav>
     );

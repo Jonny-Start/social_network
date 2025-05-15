@@ -23,11 +23,13 @@ export default function PostsPage() {
     return (
         <div className="contentPostsPage">
             <NewPostForm />
-            {posts?.posts.map((post) => (
-                <PostCard key={post.id} post={post} onLike={like} />
-            ))}
-            {/* <NewPostForm />
-                <PostCard /> */}
+            <div id="contentTargetsPost">
+                <h5>Lo más reciente <span className="text-gray-400">{posts.currentPage}/{posts.totalPages}</span></h5>
+                {posts?.posts.map((post) => (
+                    <PostCard key={post.id} post={post} onLike={like} />
+                ))}
+                <p className="text-gray-500">Total: {posts.totalItems}</p>
+            </div>
         </div>
     );
 }
